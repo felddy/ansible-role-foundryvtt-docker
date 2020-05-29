@@ -1,11 +1,11 @@
 # ansible-role-foundryvtt-docker #
 
-[![GitHub Build Status](https://github.com/cisagov/ansible-role-foundryvtt-docker/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-foundryvtt-docker/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-foundryvtt-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-foundryvtt-docker/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-foundryvtt-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-foundryvtt-docker/context:python)
+[![GitHub Build Status](https://github.com/felddy/ansible-role-foundryvtt-docker/workflows/build/badge.svg)](https://github.com/felddy/ansible-role-foundryvtt-docker/actions)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/felddy/ansible-role-foundryvtt-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/felddy/ansible-role-foundryvtt-docker/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/felddy/ansible-role-foundryvtt-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/felddy/ansible-role-foundryvtt-docker/context:python)
 
 This is a skeleton project that can be used to quickly get a new
-[cisagov](https://github.com/cisagov) Ansible role GitHub project
+[felddy](https://github.com/felddy) Ansible role GitHub project
 started.  This skeleton project contains
 [licensing information](LICENSE), as well as
 [pre-commit hooks](https://pre-commit.com) and
