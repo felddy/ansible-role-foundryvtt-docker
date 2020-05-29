@@ -1,0 +1,4 @@
+---
+  # Docker role will pull in pip role.
+- src: https://github.com/cisagov/ansible-role-docker
+  name: docker

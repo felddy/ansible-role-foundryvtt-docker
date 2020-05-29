@@ -22,7 +22,7 @@ None.
 
 ## Dependencies ##
 
-None.
+- [`ansible-role-docker`](https://github.com/cisagov/ansible-role-docker)
 
 ## Example Playbook ##
 
