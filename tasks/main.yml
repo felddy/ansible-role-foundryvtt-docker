@@ -1,2 +1,51 @@
 ---
-# tasks file for skeleton
+# tasks file for foundryvtt-docker
+- name: Create the /var/foundry directory
+  file:
+    path: /var/foundry
+    state: directory
+    mode: 0755
+
+- name: Download and untar the foundryvtt-docker tarball
+  unarchive:
+    src: >
+      https://api.github.com/repos/felddy/foundryvtt-docker/tarball/develop
+    dest: /var/foundry
+    remote_src: yes
+    extra_opts:
+      - "--strip-components=1"
+
+- name: Install foundryvtt-docker via pip
+  pip:
+    chdir: /var/foundry
+    requirements: requirements.txt
+    executable: pip3
+
+- name: Create foundryvtt-docker image
+  tags: molecule-notest
+  docker_image:
+    build:
+      args:
+        USERNAME: "{{ foundry_username }}"
+        PASSWORD: "{{ foundry_password }}"
+      path: /var/foundry
+    name: felddy/foundryvtt
+    source: build
+
+- name: Set up foundryvtt-docker systemd service
+  block:
+    - name: Install systemd service file for foundryvtt-docker
+      copy:
+        src: foundryvtt-docker.service
+        dest: /etc/systemd/system/foundryvtt-docker.service
+
+    - name: Reload systemd daemon
+      systemd:
+        daemon_reload: true
+
+    - name: Enable foundryvtt-docker systemd service to start on boot
+      systemd:
+        name: foundryvtt-docker.service
+        enabled: true
+  when:
+    - ansible_service_mgr == "systemd"
