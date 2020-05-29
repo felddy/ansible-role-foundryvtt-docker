@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  author: First Last
-  description: Skeleton Ansible role
-  company: CISA Cyber Assessments
+  author: Mark Feldhousen
+  description: Ansible role for installing felddy/foundryvtt-docker
+  company: Geekpad
   license: CC0
   min_ansible_version: 2.0
   platforms:
@@ -13,9 +13,6 @@ galaxy_info:
       versions:
         - stretch
         - buster
-        # Kali linux isn't an option here, but it is based on
-        # Debian Testing:
-        # https://www.kali.org/docs/policy/kali-linux-relationship-with-debian
         - bullseye
     - name: Fedora
       versions:
@@ -26,6 +23,6 @@ galaxy_info:
         - bionic
         - xenial
   galaxy_tags:
-    - skeleton
+    - foundryvtt
 
 dependencies: []
