@@ -4,13 +4,7 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/felddy/ansible-role-foundryvtt-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/felddy/ansible-role-foundryvtt-docker/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/felddy/ansible-role-foundryvtt-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/felddy/ansible-role-foundryvtt-docker/context:python)
 
-This is a skeleton project that can be used to quickly get a new
-[felddy](https://github.com/felddy) Ansible role GitHub project
-started.  This skeleton project contains
-[licensing information](LICENSE), as well as
-[pre-commit hooks](https://pre-commit.com) and
-[GitHub Actions](https://github.com/features/actions) configurations
-appropriate for an Ansible role.
+This Ansible role will install the FoundryVTT docker container from: [felddy/foundryvtt-docker](https://github.com/felddy/foundryvtt-docker).
 
 ## Requirements ##
 
@@ -18,7 +12,8 @@ None.
 
 ## Role Variables ##
 
-None.
+- `foundry_username` - The registered username on foundryvtt.com.
+- `foundry_password` - The password associated with the `foundry_username` above.
 
 ## Dependencies ##
 
@@ -32,8 +27,11 @@ Here's how to use it in a playbook:
 - hosts: all
   become: yes
   become_method: sudo
+  vars:
+    foundry_username: <your_username>
+    foundry_password: <your_password>
   roles:
-    - skeleton
+    - ansible-role-foundryvtt-docker
 ```
 
 ## Contributing ##
@@ -53,7 +51,3 @@ dedication](https://creativecommons.org/publicdomain/zero/1.0/).
 All contributions to this project will be released under the CC0
 dedication. By submitting a pull request, you are agreeing to comply
 with this waiver of copyright interest.
-
-## Author Information ##
-
-First Last - <first.last@trio.dhs.gov>
