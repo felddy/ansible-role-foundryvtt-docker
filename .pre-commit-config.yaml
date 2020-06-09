@@ -99,6 +99,7 @@ repos:
     rev: v1.0.1
     hooks:
       - id: docker-compose-check
+        exclude: ^templates/
   - repo: https://github.com/prettier/prettier
     rev: 2.0.5
     hooks:

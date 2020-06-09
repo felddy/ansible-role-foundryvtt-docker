@@ -1,0 +1,27 @@
+version: "3.8"
+
+volumes:
+  data:
+
+services:
+  foundry:
+    image: felddy/foundryvtt:latest
+    hostname: foundry_docker
+    init: true
+    restart: "unless-stopped"
+    volumes:
+      - type: bind
+        source: {{ foundry_data_dir }}
+        target: /data
+    environment:
+      - FOUNDRY_ADMIN_KEY={{ foundry_admin_key }}
+      - FOUNDRY_AWS_CONFIG={{ foundry_aws_config }}
+      - FOUNDRY_PASSWORD={{ foundry_password }}
+      - FOUNDRY_USERNAME={{ foundry_username }}
+      - FOUNDRY_VERSION={{ foundry_version }}
+      - FOUNDRY_WORLD={{ foundry_world }}
+    ports:
+      - target: "30000"
+        published: "30000"
+        protocol: tcp
+        mode: host

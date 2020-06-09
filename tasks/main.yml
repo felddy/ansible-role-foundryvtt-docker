@@ -1,41 +1,26 @@
 ---
 # tasks file for foundryvtt-docker
-- name: Create the /var/foundry directory
+- name: Create the foundry directory
   file:
-    path: /var/foundry
+    path: "{{ foundry_home_dir }}"
     state: directory
     mode: 0755
 
-- name: Download and untar the foundryvtt-docker tarball
-  unarchive:
-    src: >
-      https://api.github.com/repos/felddy/foundryvtt-docker/tarball/develop
-    dest: /var/foundry
-    remote_src: yes
-    extra_opts:
-      - "--strip-components=1"
+- name: Create the foundry data directory
+  file:
+    path: "{{ foundry_data_dir }}"
+    state: directory
+    mode: 0755
 
-- name: Install foundryvtt-docker via pip
-  pip:
-    chdir: /var/foundry
-    requirements: requirements.txt
-    executable: pip3
-
-- name: Create foundryvtt-docker image
-  tags: molecule-notest
-  docker_image:
-    build:
-      args:
-        USERNAME: "{{ foundry_username }}"
-        PASSWORD: "{{ foundry_password }}"
-      path: /var/foundry
-    name: felddy/foundryvtt
-    source: build
+- name: Install Docker composition file
+  template:
+    src: docker-compose.yml
+    dest: "{{ foundry_home_dir }}/docker-compose.yml"
 
 - name: Set up foundryvtt-docker systemd service
   block:
     - name: Install systemd service file for foundryvtt-docker
-      copy:
+      template:
         src: foundryvtt-docker.service
         dest: /etc/systemd/system/foundryvtt-docker.service
 

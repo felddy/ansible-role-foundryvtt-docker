@@ -3,3 +3,6 @@
   hosts: all
   roles:
     - role: ansible-role-foundryvtt-docker
+  vars:
+    foundry_username: lemmy
+    foundry_password: i5_g0d

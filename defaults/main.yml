@@ -1,0 +1,10 @@
+---
+# default variable values
+
+foundry_home_dir: /var/foundry
+foundry_data_dir: /var/foundry/data
+
+foundry_admin_key:
+foundry_aws_config:
+foundry_version:
+foundry_world:

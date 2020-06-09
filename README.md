@@ -12,8 +12,21 @@ None.
 
 ## Role Variables ##
 
-- `foundry_username` - The registered username on foundryvtt.com.
-- `foundry_password` - The password associated with the `foundry_username` above.
+### Required ###
+
+| Name             | Purpose  |
+|------------------|----------|
+| foundry_username | Account username or email address for foundryvtt.com.  Required for downloading an application release. |
+| foundry_password | Account password for foundryvtt.com.  Required for downloading an application release. |
+
+### Optional ###
+
+| Name  | Purpose |
+|-------|---------|
+| foundry_admin_key | Admin password to be applied at startup.  If omitted the admin password will be cleared. |
+| foundry_aws_config | An absolute or relative path that points to the [awsConfig.json](https://foundryvtt.com/article/aws-s3/) or `true` for AWS environment variable [credentials evaluation](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html) usage. |
+| foundry_version | Version of Foundry Virtual Tabletop to install. |
+| foundry_world | The world to startup at system start. |
 
 ## Dependencies ##
 

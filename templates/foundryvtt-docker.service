@@ -2,17 +2,17 @@
 Description=Docker composition for Foundry Virtual Tabletop
 After=docker.service network.target multi-user.target cloud-final.service
 Requires=docker.service
-RequiresMountsFor=/var/foundry/data
-AssertPathIsMountPoint=/var/foundry/data
+RequiresMountsFor={{foundry_data_dir}}
+AssertPathIsMountPoint={{foundry_data_dir}}
 
 [Service]
 Restart=always
 # Stop containers (if running) when unit is stopped
-ExecStartPre=/usr/local/bin/docker-compose -f /var/foundry/docker-compose.yml down
+ExecStartPre=/usr/local/bin/docker-compose -f {{foundry_home_dir}}/docker-compose.yml down
 # Start containers when unit is started
-ExecStart=/usr/local/bin/docker-compose -f /var/foundry/docker-compose.yml up
+ExecStart=/usr/local/bin/docker-compose -f {{foundry_home_dir}}/docker-compose.yml up
 # Stop container when unit is stopped
-ExecStop=/usr/local/bin/docker-compose -f /var/foundry/docker-compose.yml  down
+ExecStop=/usr/local/bin/docker-compose -f {{foundry_home_dir}}/docker-compose.yml  down
 
 [Install]
 WantedBy=multi-user.target
