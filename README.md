@@ -4,7 +4,9 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/felddy/ansible-role-foundryvtt-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/felddy/ansible-role-foundryvtt-docker/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/felddy/ansible-role-foundryvtt-docker.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/felddy/ansible-role-foundryvtt-docker/context:python)
 
-This Ansible role will install the FoundryVTT docker container from: [felddy/foundryvtt-docker](https://github.com/felddy/foundryvtt-docker).
+This [Ansible](https://github.com/ansible/ansible) role will install the
+[Foundry Virtual Tabletop](https://foundryvtt.com) docker container from:
+[felddy/foundryvtt-docker](https://github.com/felddy/foundryvtt-docker).
 
 ## Requirements ##
 
